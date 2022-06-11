@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 const {
-  DB_USER, DB_PORT, DB_PASS, DB_NAME, DB_HOST, DB_DIALECT,
+  DB_USER, DB_PORT, DB_PASS, DB_NAME, DB_HOST,
 } = process.env;
 
 module.exports = {
@@ -10,7 +10,7 @@ module.exports = {
     password: DB_PASS,
     database: DB_NAME,
     host: DB_HOST,
-    dialect: DB_DIALECT,
+    dialect: "postgres",
     port: DB_PORT,
   },
   production: {
@@ -18,7 +18,7 @@ module.exports = {
     password: DB_PASS,
     database: DB_NAME,
     host: DB_HOST,
-    dialect: DB_DIALECT,
+    dialect: "postgres",
     port: DB_PORT,
     dialectOptions: {
       ssl:  { rejectUnauthorized:false },
