@@ -9,7 +9,7 @@ const FileStore = require('session-file-store')(session);
 
 const app = express();
 const { PORT, COOKIE_SECRET, COOKIE_NAME } = process.env;
-
+const mainRouter = require('./src/routes/main.router.js');
 const authRouter = require('./src/routes/auth.router');
 const usersRouter = require('./src/routes/users.router');
 
@@ -49,9 +49,10 @@ app.use(express.json());
 app.use(express.static(path.join(process.env.PWD, 'public')));
 
 // APP'S ROUTES
+
 app.use('/auth', authRouter);
 app.use('/users', usersRouter);
-
+app.use('/', mainRouter)
 app.use('/lk', workerRouter);
 app.use('/company', companyRouter);
 app.use('/tips', tipsRouter);
